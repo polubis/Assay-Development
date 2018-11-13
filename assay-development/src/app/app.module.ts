@@ -15,10 +15,11 @@ import { environment } from "src/environments/environment";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './app.reducers';
 import { AuthEffects } from './store/auth/auth.effects';
+
+import { HandleRequestService } from "src/app/services/handle-request-service";
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -28,7 +29,7 @@ import { AuthEffects } from './store/auth/auth.effects';
     EffectsModule.forRoot([AuthEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [],
+  providers: [HandleRequestService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

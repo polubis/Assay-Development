@@ -1,3 +1,8 @@
-<p>
-  project-navigator works!
-</p>
+<main>
+  <app-loader *ngIf="isLoadingProjects" [width]="'45px'" [height]="'45px'"></app-loader>
+  <ul>
+    <li *ngFor="let project of projects">
+      {{project.name}}
+    </li>
+  </ul>
+</main>

@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import './colors.scss';
+body, html{
+    min-height: 100vh;
+    background: $bg;
+    color: $dark-font;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+#container{
+    min-height: 100vh;
+}
+h1,h2,h3,h4,h5,p{
+    margin: 0;
+    font-family: inherit;
+    color: $project;
+}
+button{
+    cursor: pointer;
+    &:focus{
+        outline: none;
+    }
+}
+ul{
+    margin: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
