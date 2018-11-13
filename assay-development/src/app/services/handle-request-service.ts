@@ -15,7 +15,8 @@ export interface RequestSettings {
     type: string; // type means http request type
     url: string; // means part of url with queries or parameters
     domain: string; // means part of app which executing this request. For example Project. This is helpfull for closing error prompts from the same domain
-    enableRefresh?: boolean; // this option allows user to refresh request with button click
+    enableRefresh?: boolean; // this option allows user to refresh request with button click,
+    removeAfterDelay?: boolean // this option allows user to remove prompt after specified delay
   };
 };
 
@@ -28,9 +29,10 @@ export class HandleRequestService{
     settings: RequestSettings = {
         fetchProjects: {
             type: "get", 
-            url: "poss",
+            url: "post",
             domain: "Projects",
-            enableRefresh: true
+            enableRefresh: true,
+            removeAfterDelay: true
         }
     }
 
@@ -46,14 +48,14 @@ export class HandleRequestService{
                    if(functionToExecuteOnError)
                         functionToExecuteOnError();
 
-                   this.handleError(setting.domain, error, effect, effectParams);
+                   this.handleError(setting, error, effect, effectParams);
 
                    return of();
                })
             );
     }
 
-    handleError(domain: string, errorResponse: any, effect: any, effectParams: any){
+    handleError(setting: any, errorResponse: any, effect: any, effectParams: any){
         let content: string = "";
 
         if(errorResponse.status === 0){
@@ -68,7 +70,12 @@ export class HandleRequestService{
             content = "Request parameters not found";
         }
 
-        const prompt = new Prompt(domain, content, "error", errorResponse.status, effect, effectParams);
+        const prompt = new Prompt(setting.domain, content, "error", errorResponse.status, effect, effectParams);
         this.store.dispatch(new PromptActions.SetPrompts([prompt]));
+
+        if(setting.removeAfterDelay){
+            this.store.dispatch(new PromptActions.TryRemovePrompt(setting.domain));
+        }
     }
+
 }

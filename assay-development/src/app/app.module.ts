@@ -15,6 +15,7 @@ import { environment } from "src/environments/environment";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './app.reducers';
 import { AuthEffects } from './store/auth/auth.effects';
+import { PromptEffects } from './store/prompt/prompt.effects';
 
 import { HandleRequestService } from "src/app/services/handle-request-service";
 
@@ -26,7 +27,7 @@ import { HandleRequestService } from "src/app/services/handle-request-service";
     AppRoutingModule,
     UtilsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, PromptEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [HandleRequestService],

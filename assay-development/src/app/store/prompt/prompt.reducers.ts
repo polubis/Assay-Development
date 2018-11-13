@@ -25,6 +25,11 @@ export function promptReducer(state = initialState, action: PromptActions.Prompt
                 ...state, 
                 prompts: currentPrompts
             }
+        case PromptActions.CHANGE_PROMPTS:
+            return {
+                ...state,
+                prompts: [...action.payload]
+            };
         default:
             return state;
     }
