@@ -1,15 +1,74 @@
+<div class="table-container">
+  <header class="flex-row-between-center">
 
-<table>
-  <thead>
-    <tr>
-      <th *ngFor="let tableHeader of tableService.types[type].tableHeaders">
-        {{tableHeader}}
-      </th>
-    </tr>
-  </thead>
+    <div>
+      <span [ngClass]="'table-header ' + type">{{tableService.types[type].header}}</span>
+      <span class="table-sub-header">{{tableService.types[type].subHeader}}</span>
+    </div>
 
-
-  <tbody>
-
-  </tbody>
-</table>
+  </header>
+  <table>
+      <thead>
+        <tr>
+          <th *ngFor="let tableHeader of tableService.types[type].tableHeaders; let i = index" [class]="i === 1 ? type : ''">
+            {{tableHeader}}
+          </th>
+        </tr>
+      </thead>
+    
+    
+      <tbody>
+        <tr>
+          <td>dadsa</td>
+          <td [class]="type">dadsa</td>
+          <td>dadsa</td>
+          <td>dadsa</td>
+          <td>dadsa</td>
+          <td>dadsa</td>
+          <td>dadsa</td>
+          <td>dadsa</td>
+        </tr>
+        <tr>
+            <td>dadsa</td>
+            <td>dadsa</td>
+            <td>dadsa</td>
+            <td>dadsa</td>
+            <td>dadsa</td>
+            <td>dadsa</td>
+            <td>dadsa</td>
+            <td>dadsa</td>
+          </tr>
+          <tr>
+              <td>dadsa</td>
+              <td>dadsa</td>
+              <td>dadsa</td>
+              <td>dadsa</td>
+              <td>dadsa</td>
+              <td>dadsa</td>
+              <td>dadsa</td>
+              <td>dadsa</td>
+            </tr>
+            <tr>
+                <td>dadsa</td>
+                <td>dadsa</td>
+                <td>dadsa</td>
+                <td>dadsa</td>
+                <td>dadsa</td>
+                <td>dadsa</td>
+                <td>dadsa</td>
+                <td>dadsa</td>
+              </tr>
+              <tr [ngClass]="'selected-row ' + type">
+                  <td>dadsa</td>
+                  <td>dadsa</td>
+                  <td>dadsa</td>
+                  <td>dadsa</td>
+                  <td>dadsa</td>
+                  <td>dadsa</td>
+                  <td>dadsa</td>
+                  <td>dadsa</td>
+                </tr>
+    
+      </tbody>
+    </table>
+</div>

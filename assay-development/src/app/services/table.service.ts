@@ -6,7 +6,7 @@ export class TableService{
             initialPageLimit: 5,
             tableHeaders: ["Experiment ID", "Experiment Name", "Lead Researcher", "Objective", "Study Design", "Expiration Date", "Status Date", "# Slides"]
         },
-        "projects": {
+        "project": {
             header: "Experiments",
             subHeader: "click into experiment to see details", 
             initialPageLimit: 5,

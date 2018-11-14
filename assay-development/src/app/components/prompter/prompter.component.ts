@@ -52,8 +52,8 @@ export class PrompterComponent implements OnInit, OnDestroy {
       );
       if (isPromptAlreadyInPrompts !== -1) this.closePrompt(prompt);
 
-      if (prompt.effectParams) {
-        this.store.dispatch(new prompt.effect(prompt.effectParams));
+      if (prompt.effect) {
+        this.store.dispatch(new prompt.effect());
       } else this.store.dispatch(new prompt.effect());
     }
   }

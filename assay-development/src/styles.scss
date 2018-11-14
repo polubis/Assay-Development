@@ -2,9 +2,9 @@
 body, html{
     min-height: 100vh;
     background: $bg;
-    color: $dark-font;
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    color: $dark-font;
 }
 button{
     cursor: pointer;
@@ -20,11 +20,26 @@ a{
     text-decoration: none;
     color: inherit;
 }
+h1{
+    font-size: 1.66em;
+    color: $side-bar;
+}
+h2{
+    font-size: 1.66em;
+}
+h3{
+    font-size: 1.33em;  
+}
 h1,h2,h3,h4,h5,p{
     margin: 0;
 }
 .flex-column-centered{
     display: flex;
     flex-flow: column;
+    align-items: center;
+}
+.flex-row-between-center{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }

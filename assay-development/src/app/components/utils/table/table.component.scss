@@ -1,0 +1,62 @@
+
+@import '../../../../colors.scss'; 
+.table-container{
+    box-shadow: $table-shadow;
+    .project{
+        color: $main !important;
+        tr {
+            border-right-color: $main;
+        }
+    }
+    .study{
+        color: $study !important; 
+        & > *{
+            border-right-color: $study;
+        }
+    }
+    .experiment{
+        color: $experiment !important;
+        & > *{
+            border-right-color: $experiment;
+        }
+    }
+    header{
+        padding: 15px;
+        .table-header{
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        .table-sub-header{
+            font-size: .8em;
+        }
+    }
+    table{
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+     
+        tr:first-of-type{
+            th{
+                border-top: none;
+            }
+        }
+        th, td{
+            border-top: 1px solid $table-border;
+        }
+        th, td{
+            color: $table-header;
+            padding: 15px;
+        }
+        th{
+            font-weight: 500;
+            text-align: left;
+        }
+        .selected-row{
+            background: $selected-row;
+            border-right: 4px solid;
+            td{
+                border: none;
+            }
+        }
+    }
+}

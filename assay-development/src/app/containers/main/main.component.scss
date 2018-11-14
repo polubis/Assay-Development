@@ -2,20 +2,21 @@
 #container{
     min-height: 100vh;
     display: flex;
+    width: 100%;
     aside{
         color: $light-font;
-        max-width: 100px;
+        max-width: 85px;
         background: $side-bar;
         box-shadow: $base-shadow;
         .active{
             background: $main;
         }
         a{
-            padding: 16px 0;
+            padding: 14px 0;
             width: 100%;
             text-align: center;
             span{
-                font-size: 14px;
+                font-size: 13px;
                 padding: 0 15px;
                 margin-bottom: 10px;
             }
@@ -26,5 +27,6 @@
     }
     .container{
         padding: 30px;
+        width: 100%;
     }
 }

@@ -1,14 +1,8 @@
 
-
   <app-loader *ngIf="isLoadingProjects" [width]="'45px'" [height]="'45px'"></app-loader>
-  <!-- <ul>
-    <li *ngFor="let project of projects">
-      {{project.name}}
-    </li>
-  </ul> -->
-  <div class="container project-navigator" *ngIf="!isLoadingProjects">
-      <app-table [type]="'experiment'">
-          
-      </app-table>
+  
+  <div class="container project-navigation" *ngIf="!isLoadingProjects">
+      <h1>Projects Navigator</h1>
+      <app-table [type]="'project'"></app-table>
   </div>
  
