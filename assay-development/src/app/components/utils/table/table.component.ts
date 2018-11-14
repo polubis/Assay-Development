@@ -8,10 +8,17 @@ import { TableService, Table } from "src/app/services/table.service";
 })
 export class TableComponent implements OnInit {
   @Input() type: string;
+  isFilterOpen: boolean = true;
+  areSettingsOpen: boolean = true;
+
   constructor(private tableService: TableService) { 
   }
 
   ngOnInit() {
+  }
+
+  togle(key: string){
+    this[key] = !this[key];
   }
 
 }

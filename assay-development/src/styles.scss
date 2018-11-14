@@ -8,6 +8,10 @@ body, html{
 }
 button{
     cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: .4s;
+    font-family: inherit;
     &:focus{
         outline: none;
     }
@@ -33,6 +37,10 @@ h3{
 h1,h2,h3,h4,h5,p{
     margin: 0;
 }
+.flex-row-align{
+    display: flex;
+    align-items: center;
+}
 .flex-column-centered{
     display: flex;
     flex-flow: column;
@@ -42,4 +50,19 @@ h1,h2,h3,h4,h5,p{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.row-end{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+}
+.project{
+    color: $main;
+}
+.study{
+    color: $study;
+}
+.experiment{
+    color: $experiment;
 }

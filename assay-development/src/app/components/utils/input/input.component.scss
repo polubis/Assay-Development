@@ -1,0 +1,25 @@
+@import '../../../../colors.scss';
+
+.input{
+    background: $light-font;
+    height: 35px;
+    padding: 0 10px;
+    border-radius: 5px;
+    input{
+        border: none;
+        padding-right: 7.5px;
+        width: 100%;
+        &:focus{
+            outline: none;
+        }
+        &::placeholder{
+            color: $table-header;
+            font-size: .9em;
+            font-family: inherit;
+        }
+    }
+    .icon-container{
+        color: $dark-font;
+        font-size: 1.3em;
+    }
+}

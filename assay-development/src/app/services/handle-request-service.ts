@@ -55,7 +55,6 @@ export class HandleRequestService{
                })
             );
     }
-    // dac warunek jak juz istnieje prompt w tablicy to zeby podmieniac
 
     handleError(setting: any, errorResponse: any, effect: any){
         let content: string = "";

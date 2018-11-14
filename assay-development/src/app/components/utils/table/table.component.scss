@@ -2,6 +2,8 @@
 @import '../../../../colors.scss'; 
 .table-container{
     box-shadow: $table-shadow;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     .project{
         color: $main !important;
         tr {
@@ -20,8 +22,22 @@
             border-right-color: $experiment;
         }
     }
+    .filter:first-of-type{
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .filter{
+        background: $side-bar;
+        padding: 20px 15px;
+        color: $light-font;
+    }
     header{
         padding: 15px;
+        .filter-buttons{
+            *:first-of-type{
+                margin-right: 15px;
+            }
+        }
         .table-header{
             font-size: 1.5em;
             margin-right: 10px;

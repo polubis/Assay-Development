@@ -1,11 +1,26 @@
 <div class="table-container">
-  <header class="flex-row-between-center">
+  <div class="filter flex-row-between-center" *ngIf="isFilterOpen">
+      <app-input [minWidth]="'300px'"></app-input>
+      filter
+  </div>
+  <div class="settings-container flex-row-between-center" *ngIf="areSettingsOpen">
+      settings
+  </div>
+  <div class="filter flex-row-between-center" *ngIf="isFilterOpen">
+      filter1
+  </div>
 
+  <header class="flex-row-between-center">
     <div>
       <span [ngClass]="'table-header ' + type">{{tableService.types[type].header}}</span>
       <span class="table-sub-header">{{tableService.types[type].subHeader}}</span>
     </div>
-
+    <div class="flex-row-between-center filter-buttons">
+        <app-button [btnClass]="'table-btn'" [title]="areSettingsOpen ? 'HIDE SETTINGS' : 'SHOW SETTINGS'" [icon]="'settings'" (onButtonClick)="togle('areSettingsOpen')">
+        </app-button>
+        <app-button [btnClass]="'table-btn'" [title]="isFilterOpen ? 'HIDE FILTERS' : 'SHOW FILTERS'" [icon]="'filter_list'" (onButtonClick)="togle('isFilterOpen')">
+        </app-button>
+    </div>
   </header>
   <table>
       <thead>
@@ -15,7 +30,6 @@
           </th>
         </tr>
       </thead>
-    
     
       <tbody>
         <tr>
@@ -71,4 +85,9 @@
     
       </tbody>
     </table>
+</div>
+<div class="row-end">
+    <app-button [btnClass]="type + ' table-btn'" [title]="'ADD ' + type | uppercase" [icon]="'add'">
+        
+    </app-button>
 </div>
