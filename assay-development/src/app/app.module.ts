@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { UtilsModule } from './components/utils/utils.module';
-
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { environment } from "src/environments/environment";
@@ -27,7 +25,6 @@ import { CookiesService } from "src/app/services/cookies.service";
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    UtilsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects, PromptEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []

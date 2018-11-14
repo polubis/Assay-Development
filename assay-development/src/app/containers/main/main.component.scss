@@ -1,0 +1,30 @@
+@import '../../../colors.scss';
+#container{
+    min-height: 100vh;
+    display: flex;
+    aside{
+        color: $light-font;
+        max-width: 100px;
+        background: $side-bar;
+        box-shadow: $base-shadow;
+        .active{
+            background: $main;
+        }
+        a{
+            padding: 16px 0;
+            width: 100%;
+            text-align: center;
+            span{
+                font-size: 14px;
+                padding: 0 15px;
+                margin-bottom: 10px;
+            }
+            i{
+
+            }
+        }
+    }
+    .container{
+        padding: 30px;
+    }
+}

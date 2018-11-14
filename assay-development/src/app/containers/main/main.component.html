@@ -1,7 +1,26 @@
-<p>
+<!-- <p>
   main works!
 </p>
 <button (click)="logout()">Logout</button>
-<a routerLink="/slides">Click me</a>
-<router-outlet></router-outlet>
-<app-prompter></app-prompter>
+<a routerLink="/slides">Click me</a> -->
+
+<div id="container">
+  <aside class="flex-column-centered">
+    <a class="flex-column-centered" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <span>Project Navigator</span>
+      <i class="material-icons">assignment</i>
+    </a>
+    <a class="flex-column-centered" routerLink="/runs" routerLinkActive="active">
+      <span>Staining Runs</span>
+      <i class="material-icons">picture_as_pdf</i>
+    </a>
+    <a class="flex-column-centered" routerLink="/slides" routerLinkActive="active">
+      <span>Slides List</span>
+      <i class="material-icons">photo_library</i>
+    </a>
+  </aside>
+
+  <router-outlet></router-outlet>
+  
+  <app-prompter></app-prompter>
+</div>

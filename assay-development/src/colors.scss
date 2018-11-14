@@ -1,9 +1,13 @@
 $bg: #F2F2F2;
 $dark-font: #656565;
 $light-font: #fff;
-$project: #1565C0;
+$main: #1565C0;
 $study: #00965E;
 $experiment: #A05EB5;
 $dark-font: #202020;
-$shadow: 0 6px 10px rgba(0,0,0, .14);
 $selected-row: rgba(170, 170, 170, .21);
+
+$base-shadow: 0 6px 10px rgba(0,0,0, .14);
+$table-shadow: 0 6px 24px rgba(0,0,0,.14);
+$table-header: rgba(15, 15, 15, 0.82);
+$side-bar: rgba(15, 15, 15, 0.82);

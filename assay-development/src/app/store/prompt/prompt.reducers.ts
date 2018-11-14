@@ -15,7 +15,7 @@ export function promptReducer(state = initialState, action: PromptActions.Prompt
         case PromptActions.SET_PROMPTS:
             return { 
                 ...state,
-                prompts: [...state.prompts, ...action.payload]
+                prompts: [...action.payload]
             }
         case PromptActions.REMOVE_PROMPT:
             const currentPrompts = [...state.prompts];

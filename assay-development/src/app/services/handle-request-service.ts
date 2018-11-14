@@ -9,6 +9,7 @@ import { Store } from "@ngrx/store";
 import * as fromApp from '../app.reducers';
 import { Prompt } from "src/app/models/Prompt";
 import * as PromptActions from '../store/prompt/prompt.actions';
+import { take } from "rxjs/operators";
 
 export interface RequestSettings {
   [requestName: string]: {
@@ -36,7 +37,7 @@ export class HandleRequestService{
         }
     }
 
-    handleRequest(name: string, functionToExecuteOnError?: any, effect?: any, effectParams?: any): Observable<HttpClient>{
+    handleRequest(name: string, functionToExecuteOnError?: any, effect?: any): Observable<HttpClient>{
         const setting = this.settings[name];
         return this.http[setting.type](this.requestPath + setting.url)
             .pipe(
@@ -48,14 +49,15 @@ export class HandleRequestService{
                    if(functionToExecuteOnError)
                         functionToExecuteOnError();
 
-                   this.handleError(setting, error, effect, effectParams);
+                   this.handleError(setting, error, effect);
 
                    return of();
                })
             );
     }
+    // dac warunek jak juz istnieje prompt w tablicy to zeby podmieniac
 
-    handleError(setting: any, errorResponse: any, effect: any, effectParams: any){
+    handleError(setting: any, errorResponse: any, effect: any){
         let content: string = "";
 
         if(errorResponse.status === 0){
@@ -70,12 +72,22 @@ export class HandleRequestService{
             content = "Request parameters not found";
         }
 
-        const prompt = new Prompt(setting.domain, content, "error", errorResponse.status, effect, effectParams);
-        this.store.dispatch(new PromptActions.SetPrompts([prompt]));
+        this.store.select(state => state.prompt.prompts)
+        .pipe(
+            take(1)
+        )
+        .subscribe((prompts: Prompt[]) => {
+            const indexOfPromptToSplice = prompts.findIndex(prompt => prompt.domain === setting.domain);
+            const prompt = new Prompt(setting.domain, content, "error", errorResponse.status, effect);
+            
+            prompts.splice(indexOfPromptToSplice, 1, prompt);
+            
+            this.store.dispatch(new PromptActions.SetPrompts(prompts));
 
-        if(setting.removeAfterDelay){
-            this.store.dispatch(new PromptActions.TryRemovePrompt(setting.domain));
-        }
+            if(setting.removeAfterDelay){
+                this.store.dispatch(new PromptActions.TryRemovePrompt(setting.domain));
+            }
+        });
     }
 
 }

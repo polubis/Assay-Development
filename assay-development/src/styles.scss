@@ -6,14 +6,6 @@ body, html{
     font-family: 'Roboto', sans-serif;
     margin: 0;
 }
-#container{
-    min-height: 100vh;
-}
-h1,h2,h3,h4,h5,p{
-    margin: 0;
-    font-family: inherit;
-    color: $project;
-}
 button{
     cursor: pointer;
     &:focus{
@@ -27,4 +19,12 @@ ul{
 a{
     text-decoration: none;
     color: inherit;
+}
+h1,h2,h3,h4,h5,p{
+    margin: 0;
+}
+.flex-column-centered{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
