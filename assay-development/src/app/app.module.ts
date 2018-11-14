@@ -18,6 +18,8 @@ import { AuthEffects } from './store/auth/auth.effects';
 import { PromptEffects } from './store/prompt/prompt.effects';
 
 import { HandleRequestService } from "src/app/services/handle-request-service";
+import { AuthGuard } from "src/app/services/auth.guard";
+import { CookiesService } from "src/app/services/cookies.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +32,7 @@ import { HandleRequestService } from "src/app/services/handle-request-service";
     EffectsModule.forRoot([AuthEffects, PromptEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [HandleRequestService],
+  providers: [HandleRequestService, AuthGuard, CookiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

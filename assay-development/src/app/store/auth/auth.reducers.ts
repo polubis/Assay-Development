@@ -2,10 +2,12 @@ import * as AuthActions from './auth.actions';
 
 export interface State {
   authenticated: boolean;
+  role: string
 }
 
 const initialState: State = {
-  authenticated: false
+  authenticated: false,
+  role: ""
 };
 
 export function authReducer(state = initialState, action: AuthActions.AuthActions) {
@@ -13,12 +15,14 @@ export function authReducer(state = initialState, action: AuthActions.AuthAction
     case AuthActions.LOG_IN:
         return {
             ...state,
-            authenticated: true
+            authenticated: true,
+            role: action.payload
         }
     case AuthActions.LOG_OUT:
         return {
             ...state,
-            authenticated: false
+            authenticated: false,
+            role: ""
         }
     default:
       return state;

@@ -16,10 +16,10 @@ export class ProjectNavigatorComponent implements OnInit {
 
   ngOnInit() {
     this.store.select("project").subscribe(projects => {
-      console.log(projects);
       this.isLoadingProjects = projects.loading;
       this.projects = projects.projects;
     });
     this.store.dispatch(new ProjectActions.FetchProjects());
   }
+
 }
