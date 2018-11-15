@@ -11,12 +11,15 @@ import { projectReducer } from '../../store/project/project.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { ProjectEffects } from '../../store/project/project.effects';
 import { PrompterComponent } from "src/app/components/prompter/prompter.component";
+import { ProjectsComponent } from '../../components/projects/projects.component';
+import { StudiesComponent } from "src/app/components/studies/studies.component";
+import { ExperimentsComponent } from "src/app/components/experiments/experiments.component";
 
 @NgModule({
-    declarations: [MainComponent, ProjectNavigatorComponent, PrompterComponent],
+    declarations: [MainComponent, ProjectNavigatorComponent, PrompterComponent, ProjectsComponent, StudiesComponent, ExperimentsComponent],
     imports: [MainRoutingModule, 
         CommonModule, UtilsModule, 
         StoreModule.forFeature('project', projectReducer), 
         EffectsModule.forFeature([ProjectEffects])]
 })
-export class MainModule {}
+export class MainModule {} 

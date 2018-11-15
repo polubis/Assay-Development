@@ -1,6 +1,13 @@
 <div class="table-container">
   <div class="filter flex-row-between-center" *ngIf="isFilterOpen">
-      <app-input [minWidth]="'300px'"></app-input>
+      <div class="row">
+          <app-input  [minWidth]="'170px'" [icon]="'search'" [mode]="'custom-select'"></app-input>
+          
+          <app-input [inputClass]="'normal'" [minWidth]="'300px'" [icon]="'search'"></app-input>
+
+          <app-button [btnClass]="'table-btn add-filter-btn'" [title]="'ADD FILTER'" [icon]="'add_circle'" (onButtonClick)="togle('areSettingsOpen')"></app-button>
+      </div>
+      
       filter
   </div>
   <div class="settings-container flex-row-between-center" *ngIf="areSettingsOpen">

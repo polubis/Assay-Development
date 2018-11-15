@@ -3,9 +3,9 @@
   
   <div class="container project-navigation" *ngIf="!isLoadingProjects">
       <h1>Projects Navigator</h1>
-      <app-table [type]="'project'"></app-table>
-      <app-table [type]="'study'"></app-table>
-      <app-table [type]="'experiment'"></app-table>
+      <app-projects></app-projects>
+      <app-studies></app-studies>
+      <app-experiments></app-experiments>
       
   </div>
  

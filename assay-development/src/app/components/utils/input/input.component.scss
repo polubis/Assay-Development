@@ -1,9 +1,11 @@
 @import '../../../../colors.scss';
 
+.normal{
+    padding: 0 10px 0 12.5px;
+}
 .input{
     background: $light-font;
     height: 35px;
-    padding: 0 10px;
     border-radius: 5px;
     input{
         border: none;
@@ -21,5 +23,12 @@
     .icon-container{
         color: $dark-font;
         font-size: 1.3em;
+    }
+}
+.custom-select{
+    input{
+        height: 35px;
+        border-radius: 5px;
+        padding: 0 10px;
     }
 }

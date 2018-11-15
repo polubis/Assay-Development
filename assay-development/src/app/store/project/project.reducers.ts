@@ -6,14 +6,17 @@ export interface FeatureState extends fromApp.AppState{
     project: State
 }
 
+
 export interface State {
   projects: Project[],
-  loading: boolean
+  loading: boolean,
+  projectsFilters: { category: string, value: any }[]
 };
 
 const initialState: State = {
     projects: [],
-    loading: false
+    loading: false,
+    projectsFilters: []
 };
 
 export function projectReducer(state = initialState, action: ProjectActions.ProjectActions){

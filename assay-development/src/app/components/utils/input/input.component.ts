@@ -7,9 +7,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InputComponent implements OnInit {
   @Input() minWidth: string = "unset";
+  @Input() icon: string;
+  @Input() type: string = "text";
+  @Input() inputClass: string = "";
+  @Input() placeholder: string = "start typing..."
+  @Input() mode: string = "normal";
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleTyping(event){
+    console.log(event.target.value);
   }
 
 }

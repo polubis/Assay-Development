@@ -3,7 +3,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'app-button',
   template: `
-  <div class="btn-container">
+  <div class="btn-container" [ngStyle]="styles">
     <button [class]="btnClass" (click)="handleClick()">
       <i *ngIf="icon !== ''" class="material-icons">{{icon}}</i>
       <span>
@@ -18,6 +18,7 @@ export class ButtonComponent {
   @Input() btnClass: string;
   @Input() title: string;
   @Input() icon: string;
+  @Input() styles: string;
   @Output() onButtonClick = new EventEmitter<void>();
 
   handleClick(){

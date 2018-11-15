@@ -66,3 +66,10 @@ h1,h2,h3,h4,h5,p{
 .experiment{
     color: $experiment;
 }
+.row{
+    display: flex;
+    align-items: center;
+    & > *:first-of-type {
+        margin-right: 35px;
+    }
+}
