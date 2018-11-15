@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -8,18 +8,32 @@ import { Component, OnInit, Input } from '@angular/core';
 export class InputComponent implements OnInit {
   @Input() minWidth: string = "unset";
   @Input() icon: string;
+  @Input() value: any;
   @Input() type: string = "text";
-  @Input() inputClass: string = "";
+  @Input() inputContainerClass: string = "";
   @Input() placeholder: string = "start typing..."
   @Input() mode: string = "normal";
-  
+  @Input() data: any[];
+
+  @Output() onTyping = new EventEmitter<any>();
+  @Output() onBluring = new EventEmitter<void>();
+  @Output() onFocusing = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
+  console.log(this.value);
   }
 
-  handleTyping(event){
-    console.log(event.target.value);
+  handleTyping(e){
+    this.onTyping.emit(e.target.value);
+  }
+
+  handleBlur(){
+    this.onBluring.emit();
+  }
+
+  handleFocus(){
+    this.onFocusing.emit();
   }
 
 }

@@ -1,34 +1,46 @@
-<div [style.minWidth]="minWidth" [class]="'input flex-row-align ' + inputClass">
-
+<div [class]="'input flex-row-between-center error-no-border ' + inputContainerClass + ' ' + mode">
   <ng-container *ngIf="mode === 'normal'">
-    <input (input)="handleTyping($event)" [type]="type" [placeholder]="placeholder" />
-    <div class="icon-container flex-row-align">
+    <input [style.minWidth]="minWidth" (input)="handleTyping($event)" [type]="type" [placeholder]="placeholder" (blur)="handleBlur()" (focus)="handleFocus()"
+    [value]="value" />
+    <div class="icon-container flex-perf-center">
       <i class="material-icons">{{icon}}</i>
     </div>
   </ng-container>
 
-  <ng-container *ngIf="mode === 'custom-select'">
-      <div class="custom-select">
-          <input 
-          list="select-items"
-          autocomplete="off"
-          type="text" placeholder="click to select category"/>
-          <datalist id="select-items" className="select-input">
-              <option value="0">Select car:</option>
-              <option value="1">Audi</option>
-              <option value="2">BMW</option>
-              <option value="3">Citroen</option>
-              <option value="4">Ford</option>
-              <option value="5">Honda</option>
-              <option value="6">Jaguar</option>
-              <option value="7">Land Rover</option>
-              <option value="8">Mercedes</option>
-              <option value="9">Mini</option>
-              <option value="10">Nissan</option>
-              <option value="11">Toyota</option>
-              <option value="12">Volvo</option>
-          </datalist>
-      </div>
-  </ng-container>
+  <ng-container *ngIf="mode === 'data-list-select'">
+      <input [style.minWidth]="minWidth" (blur)="handleBlur()" (focus)="handleFocus()"
+      (change)="handleTyping($event)"
+      [value]="value"
+      list="select-items"
+      class="data-list-select"
+      autocomplete="off"
+      type="text" placeholder="click to select category"/>
+      <datalist id="select-items" className="select-input">
+          <option *ngFor="let item of data" [value]="item">
+            {{item}}
+          </option>
+      </datalist>
+  </ng-container>    
 
+  <div class="validation-container error flex-row-between-center" *ngIf="mode !== 'data-list-select'">
+    <i class="material-icons">error_outline</i>
+    <ul class="validation">
+      <li class="flex-row-between-center error">
+        <span>This field must have minimum 3 length</span>
+        <i class="material-icons">check</i>
+      </li>
+      <li class="flex-row-between-center error">
+          <span>This field must have minimum 3 length</span>
+          <i class="material-icons">check</i>
+      </li>
+      <li class="flex-row-between-center error">
+        <span>This field must have minimum 3 length</span>
+        <i class="material-icons">check</i>
+      </li>
+      <li class="flex-row-between-center error">
+        <span>This field must have minimum 3 length</span>
+        <i class="material-icons">check</i>
+      </li>
+    </ul>
+  </div>
 </div>

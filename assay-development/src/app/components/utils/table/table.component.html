@@ -1,20 +1,19 @@
 <div class="table-container">
   <div class="filter flex-row-between-center" *ngIf="isFilterOpen">
-      <div class="row">
-          <app-input  [minWidth]="'170px'" [icon]="'search'" [mode]="'custom-select'"></app-input>
-          
-          <app-input [inputClass]="'normal'" [minWidth]="'300px'" [icon]="'search'"></app-input>
-
-          <app-button [btnClass]="'table-btn add-filter-btn'" [title]="'ADD FILTER'" [icon]="'add_circle'" (onButtonClick)="togle('areSettingsOpen')"></app-button>
-      </div>
-      
+      <app-form [classes]="'row'" [formConfig]="filterForm"></app-form>
       filter
   </div>
   <div class="settings-container flex-row-between-center" *ngIf="areSettingsOpen">
       settings
   </div>
   <div class="filter flex-row-between-center" *ngIf="isFilterOpen">
-      filter1
+    <app-button [btnClass]="'label label-white'" [title]="'APPLIED FILTERS'" [isClickingEnable]="false"></app-button>
+
+    <div class="row">
+      <div class="tags" *ngFor="let filter of filters">
+        {{filter.category}} {{filter.value}}
+      </div>
+    </div>
   </div>
 
   <header class="flex-row-between-center">

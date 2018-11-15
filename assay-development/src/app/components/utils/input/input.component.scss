@@ -1,34 +1,160 @@
 @import '../../../../colors.scss';
-
+.correct{
+    color: $correct;
+}
+.error{
+    color: $error;
+}
+.validation-container{
+    .validation{
+        position: absolute;
+        box-shadow: $base-shadow;
+        padding: 0;
+        width: 100%;
+        right: 0;
+        top: 35px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background: $light-font;
+        color: black;
+        li{
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            span{
+                font-size: .77em;
+                max-width: 90%;
+            }
+        }
+    }
+}
+.data-list-select{
+    border-radius: 5px;
+}
 .normal{
-    padding: 0 10px 0 12.5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .input{
     background: $light-font;
-    height: 35px;
-    border-radius: 5px;
+    position: relative;
+
     input{
+        padding: 10px 15px;
         border: none;
-        padding-right: 7.5px;
-        width: 100%;
+        border-radius: 5px;
         &:focus{
             outline: none;
         }
         &::placeholder{
             color: $table-header;
-            font-size: .9em;
+            font-size: .95em;
             font-family: inherit;
         }
     }
-    .icon-container{
-        color: $dark-font;
-        font-size: 1.3em;
-    }
-}
-.custom-select{
-    input{
+    .icon-container, .validation-container{
         height: 35px;
-        border-radius: 5px;
         padding: 0 10px;
     }
+    .icon-container{
+        color: $light-font;
+        background: $main;
+    }
+    i{
+        font-size: 1.15em;
+    }
 }
+.margin-right{
+    margin-right: 15px;
+}
+// .error-no-border{
+//     color: $error;
+//     li{
+//         color: $error;
+//     }
+//     &::after{
+//         background: $error;
+//     }
+// }
+// .correct-no-border{
+//     color: $correct;
+//     li{
+//         color: $correct;
+//     }
+//     .icon-container{
+//         &::after{
+//             background: $correct;
+//         }
+//     }
+// }
+// .input{
+//     background: $light-font;
+//     height: 35px;
+//     border-radius: 5px;
+//     position: relative;
+//     &::after{
+//         content: '';
+//         width: 5px;
+//         height: 5px;
+//         z-index: 1;
+//         bottom: -2.5px;
+//         right: 19.5px;
+//         transform: rotate(45deg);
+//         position: absolute;
+//     }
+//     .data-list-input{
+//         padding: 0 10px;
+//     }
+//     input{
+//         border: none;
+//         padding: 0 10px;
+//         width: 100%;
+//         box-sizing: border-box;
+//         &:focus{
+//             outline: none;
+//         }
+//         &::placeholder{
+//             color: $table-header;
+//             font-size: .9em;
+//             font-family: inherit;
+//         }
+//     }
+//     .icon-container{
+//         color: $dark-font;
+//         font-size: 1.3em;
+//         margin-right: 10px;
+//     }
+//     .validation-container{
+//         margin-right: 10px;
+//         z-index: 2;
+//         .validation{
+//             position: absolute;
+//             box-shadow: $base-shadow;
+//             padding: 0;
+//             width: 100%;
+//             right: 0;
+//             top: 35px;
+//             border-bottom-left-radius: 5px;
+//             border-bottom-right-radius: 5px;
+//             background: $light-font;
+//             color: black;
+//             li{
+//                 padding: 10px;
+//                 width: 100%;
+//                 box-sizing: border-box;
+//                 &:first-of-type{
+//                     border-top-left-radius: -5px;
+//                     border-top-right-radius: -5px;
+//                 }
+//                 span{
+//                     font-size: .77em;
+//                 }
+//             }
+//         }
+//     }
+    
+// }
+// .margin-right{
+//     margin-right: 15px;
+// }

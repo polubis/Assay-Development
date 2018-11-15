@@ -7,7 +7,6 @@ body, html{
     color: $dark-font;
 }
 button{
-    cursor: pointer;
     border: none;
     background: transparent;
     transition: .4s;
@@ -51,6 +50,11 @@ h1,h2,h3,h4,h5,p{
     justify-content: space-between;
     align-items: center;
 }
+.flex-perf-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .row-end{
     display: flex;
     align-items: center;
@@ -69,7 +73,4 @@ h1,h2,h3,h4,h5,p{
 .row{
     display: flex;
     align-items: center;
-    & > *:first-of-type {
-        margin-right: 35px;
-    }
 }
