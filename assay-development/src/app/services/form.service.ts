@@ -14,7 +14,6 @@ export class FormService {
     const formState: InputState[] = formConfig.map(config => {
       return new InputState(config.initialValue ? config.initialValue : "", true, [], config.initialData ? config.initialData : []);
     });
-    console.log(formState);
 
     this.formState.next(formState);
   }

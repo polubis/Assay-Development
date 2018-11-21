@@ -17,7 +17,6 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.store.select(state => state.filter.projectFilters)
       .subscribe((filters: fromFilter.Filter[]) => {
-        console.log(filters);
         this.filters = filters;
       });
   }

@@ -32,7 +32,6 @@ export class AuthEffects {
                 // this.cookiesService.setCookie("role", 1, "/", "Administrator");
                 const isAuth = this.cookiesService.getASpecyficCookieValue("authentication");
                 const role: string = this.cookiesService.getASpecyficCookieValue("role");
-                console.log(isAuth, role);
                 return isAuth ? { type: AuthActions.LOG_IN, payload: role } : { type: AuthActions.LOG_OUT };
             }),
         )

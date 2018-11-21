@@ -21,7 +21,6 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.subscription = this.formService.formState.
     subscribe((state: InputState[]) => {
-      console.log(state, this.formConfig);
       this.formState = state;
     });
 

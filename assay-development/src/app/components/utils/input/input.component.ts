@@ -21,7 +21,6 @@ export class InputComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  console.log(this.value);
   }
 
   handleTyping(e){
